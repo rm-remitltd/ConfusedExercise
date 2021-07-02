@@ -89,7 +89,7 @@ namespace ConfusedExercise.Features
         {
             var (newComputer, computersPage) = Retrieve<Computer, ComputersPage>();
 
-            computersPage.IsDisplaying(newComputer).Should().BeTrue(
+            Ryan.ObservesThat(computersPage, cp => cp.IsDisplaying(newComputer)).Should().BeTrue(
                 because: "the computer was added to the database.");
         }
 
@@ -100,8 +100,8 @@ namespace ConfusedExercise.Features
 
             var computersPage = Ryan.BrowsesTo<ComputersPage>();
 
-            computersPage.IsDisplaying(deletedComputer).Should().BeFalse(because:
-                "the user deleted the computer");
+            Ryan.ObservesThat(computersPage, cp => cp.IsDisplaying(deletedComputer)).Should().BeFalse(
+                because: "the user deleted the computer");
         }
 
         [Then(@"the computer will be displayed in the list of filtered results")]
@@ -109,10 +109,10 @@ namespace ConfusedExercise.Features
         {
             var (computersPage, expectedComputer) = Retrieve<ComputersPage, Computer>();
 
-            computersPage.NumberOfComputersFound.Should().BeGreaterThan(0,
+            Ryan.ObservesThat(computersPage, cp => cp.NumberOfComputersFound).Should().BeGreaterThan(0,
                 because: "the filter used should've returned some results");
 
-            computersPage.IsDisplaying(expectedComputer).Should().BeTrue(
+            Ryan.ObservesThat(computersPage, cp => cp.IsDisplaying(expectedComputer)).Should().BeTrue(
                 because: $"the user filtered on computers called '{expectedComputer.Name}'");
         }
 
@@ -121,7 +121,7 @@ namespace ConfusedExercise.Features
         {
             var computersPage = Retrieve<ComputersPage>();
 
-            computersPage.NumberOfComputersFound.Should().Be(0,
+            Ryan.ObservesThat(computersPage, cp => cp.NumberOfComputersFound).Should().Be(0,
                 because: "the user filtered on a computer that doesn't exist");
         }
 

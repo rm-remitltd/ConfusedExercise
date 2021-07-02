@@ -30,5 +30,9 @@ namespace ConfusedExercise.Actors
 
             return page;
         }
+
+        internal TResult ObservesThat<TPage, TResult>(TPage page, Func<TPage, TResult> predicate) 
+            where TPage : PageBase
+                => predicate(page);
     }
 }

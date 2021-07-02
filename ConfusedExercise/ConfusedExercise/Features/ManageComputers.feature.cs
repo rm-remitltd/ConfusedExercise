@@ -213,13 +213,13 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("User searches for a computer that doesn\'t and finds no results")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("User searches for a computer that doesn\'t exist and finds no results")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Manage Computers")]
-        public virtual void UserSearchesForAComputerThatDoesntAndFindsNoResults()
+        public virtual void UserSearchesForAComputerThatDoesntExistAndFindsNoResults()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User searches for a computer that doesn\'t and finds no results", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("User searches for a computer that doesn\'t exist and finds no results", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
