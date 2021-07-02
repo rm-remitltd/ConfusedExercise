@@ -9,10 +9,8 @@ namespace ConfusedExercise.Specflow
     {
         private readonly FeatureContext _featureContext;
 
-        public Hooks(FeatureContext featureContext)
-        {
-            _featureContext = featureContext;
-        }
+        public Hooks(FeatureContext featureContext) => _featureContext = featureContext;
+        
         [BeforeScenario]
         public void BeforeScenario()
         {

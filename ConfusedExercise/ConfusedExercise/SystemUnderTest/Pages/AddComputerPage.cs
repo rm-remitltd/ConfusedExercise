@@ -16,12 +16,14 @@ namespace ConfusedExercise.SystemUnderTest.Pages
 
         #region Public methods
 
-        public void Add(Computer computer)
+        public override void Navigate() => Driver.Navigate().GoToUrl(BaseUrl + PageUrl);
+        
+         public void Add(Computer computer)
         {
             ComputerName = computer.Name;
             IntroducedDate = computer.IntroducedDate;
             DiscontinuedDate = computer.DiscontinuedDate;
-            ComputerName = computer.Company;
+            Company = computer.Company;
 
             CreateComputerButton.Click();
         }
