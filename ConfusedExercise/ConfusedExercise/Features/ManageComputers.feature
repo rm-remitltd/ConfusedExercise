@@ -17,6 +17,6 @@ Scenario: User searches for and finds a computer they are looking for in the sys
 	When the user uses the filter to search for a computer that exists in the system
 	Then the computer will be displayed in the list of filtered results
 
-Scenario: User searches for a computer that doesn't and finds no results
+Scenario: User searches for a computer that doesn't exist and finds no results
 	When the user uses the filter to search for a computer that doesn't exist in the system
 	Then no results will be displayed
