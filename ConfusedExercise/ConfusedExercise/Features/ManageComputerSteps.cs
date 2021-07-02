@@ -70,7 +70,7 @@ namespace ConfusedExercise.Features
             var computer = Retrieve<Computer>();
 
             var computersPage = Ryan.BrowsesTo<ComputersPage>();
-            computersPage.Filter(computer.Name);
+            computersPage.FilterBy(computer.Name);
 
             Save(computersPage);
         }
@@ -79,7 +79,7 @@ namespace ConfusedExercise.Features
         public void WhenTheUserUsesTheFilterToSearchForAComputerThatDoesnTExistInTheSystem()
         {
             var computersPage = Ryan.BrowsesTo<ComputersPage>();
-            computersPage.Filter(Guid.NewGuid().ToString());
+            computersPage.FilterBy(Guid.NewGuid().ToString());
 
             Save(computersPage);
         }
@@ -91,8 +91,7 @@ namespace ConfusedExercise.Features
         [Then(@"the new computer will be shown")]
         public void ThenTheNewComputerWillBeShown()
         {
-            var newComputer = Retrieve<Computer>();
-            var computersPage = Retrieve<ComputersPage>();
+            var (newComputer, computersPage) = Retrieve<Computer, ComputersPage>();
 
             computersPage.IsDisplaying(newComputer).Should().BeTrue(
                 because: "the computer was added to the database.");
@@ -112,8 +111,7 @@ namespace ConfusedExercise.Features
         [Then(@"the computer will be displayed in the list of filtered results")]
         public void ThenTheComputerWillBeDisplayedInTheListOfFilteredResults()
         {
-            var computersPage = Retrieve<ComputersPage>();
-            var expectedComputer = Retrieve<Computer>();
+            var (computersPage, expectedComputer) = Retrieve<ComputersPage, Computer>();
 
             computersPage.NumberOfComputersFound.Should().BeGreaterThan(0,
                 because: "the filter used should've returned some results");

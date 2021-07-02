@@ -45,7 +45,7 @@ namespace ConfusedExercise.SystemUnderTest.Pages
             return new EditComputerPage(Driver, BaseUrl);
         }
 
-        public void Filter(string text)
+        public void FilterBy(string text)
         {
             SearchBox.SendKeys(text);
 
@@ -54,10 +54,7 @@ namespace ConfusedExercise.SystemUnderTest.Pages
 
         public void NextPage() => NextPageLink.FindElement(By.TagName("a")).Click();
 
-
-
         public bool IsDisplaying(Computer computer) => FindTableRow(computer.Name) != null;
-
 
         #endregion
 

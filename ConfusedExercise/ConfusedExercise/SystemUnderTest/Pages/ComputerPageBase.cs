@@ -28,7 +28,5 @@ namespace ConfusedExercise.SystemUnderTest.Pages
         public string Company { set => CompanySelect.SelectByText(value); }
 
         #endregion
-
-
     }
 }
