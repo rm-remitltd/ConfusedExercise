@@ -18,12 +18,9 @@ namespace ConfusedExercise.SystemUnderTest.Pages
 
         public override void Navigate() => Driver.Navigate().GoToUrl(BaseUrl + PageUrl);
         
-         public void Add(Computer computer)
+        public void Add(Computer computer)
         {
-            ComputerName = computer.Name;
-            IntroducedDate = computer.IntroducedDate;
-            DiscontinuedDate = computer.DiscontinuedDate;
-            Company = computer.Company;
+            SetFields(computer);
 
             CreateComputerButton.Click();
         }

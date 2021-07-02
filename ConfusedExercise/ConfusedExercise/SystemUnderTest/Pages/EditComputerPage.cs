@@ -22,10 +22,7 @@ namespace ConfusedExercise.SystemUnderTest.Pages
 
         public void UpdateComputer(Computer computer)
         {
-            ComputerName = computer.Name;
-            IntroducedDate = computer.IntroducedDate;
-            DiscontinuedDate = computer.DiscontinuedDate;
-            ComputerName = computer.Company;
+            SetFields(computer);
 
             SaveComputerButton.Click();
         }

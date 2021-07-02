@@ -1,4 +1,5 @@
 ﻿using ConfusedExercise.Selenium;
+using ConfusedExercise.SystemUnderTest.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -28,5 +29,13 @@ namespace ConfusedExercise.SystemUnderTest.Pages
         public string Company { set => CompanySelect.SelectByText(value); }
 
         #endregion
+
+        protected void SetFields(Computer computer)
+        {
+            ComputerName = computer.Name;
+            IntroducedDate = computer.IntroducedDate;
+            DiscontinuedDate = computer.DiscontinuedDate;
+            ComputerName = computer.Company;
+        }
     }
 }
