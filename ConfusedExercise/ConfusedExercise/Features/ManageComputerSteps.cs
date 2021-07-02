@@ -13,12 +13,8 @@ namespace ConfusedExercise.Features
     internal class ManageComputerSteps : StepsBase
     {
         private readonly BrowserActor Ryan;
-        private Computer RandomComputer { get => Retrieve<Computer>(); set => Save(value); }
 
-        public ManageComputerSteps(BrowserActor browserActor)
-        {
-            Ryan = browserActor;
-        }
+        public ManageComputerSteps(BrowserActor browserActor) => Ryan = browserActor;
 
         #region Givens
 
